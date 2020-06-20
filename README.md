@@ -23,10 +23,13 @@ run(){
     clang lib.a -Isrc $@ ; ./a.out
 }
 
-# run demos/mandelbrot_main.c
-# run a.c
+run demos/mandelbrot_main.c
+run a.c
 
 push()
 {
 	git add . ; git status ; git commit -m '$1' ; git push
 }
+
+help with bash
+https://stackoverflow.com/questions/1983048/passing-a-string-with-spaces-as-a-function-argument-in-bash
