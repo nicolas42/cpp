@@ -22,3 +22,4 @@ typedef uintptr_t		REBUPT;		// unsigned counterpart of void*
 #define MIN_I64 INT64_MIN
 
 #endif
+

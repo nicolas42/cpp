@@ -173,7 +173,7 @@ strings string_split_destructive(char* a, char* split_chars)
 
 void demo_split_destructive(void)
 {
-	string f = read_file("util.h");
+	string f = read_file("basic.h");
 	strings tokens = string_split_destructive(f.data, "\n\r\t ");
 
 	for (size_t i = 0; i < min(10, tokens.length); i++){
