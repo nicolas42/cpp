@@ -1,5 +1,11 @@
 #include "basic.h"
 
+
+double get_time(void)
+{
+	return clock()/(double)CLOCKS_PER_SEC;
+}
+
 string string_make(size_t n)
 {
 	string f;

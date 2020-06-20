@@ -1,5 +1,5 @@
 /*
-clang++ -std=c++17 demo-vectors.cpp ; ./a.out
+clang++ -std=c++17 demos/demo-vectors.cpp ; ./a.out
 */
 
 #include <iostream>
@@ -10,33 +10,35 @@ int demo_vectors()
 {
     using namespace std;
 
-	vector<int> ix = {1, 2, 4, 8, 16};
-	vector<string> fruits = {"orange", "apple", "raspberry"};
-	vector<char> empty;
+    // integers
+	vector<int> integers = {1, 2, 4, 8, 16};
  
-    ix.push_back(25);
-    ix.push_back(13);
+    integers.push_back(25);
+    integers.push_back(13);
  
-    // Iterate and print values of vector
-    for(int i : ix) {
+    cout << "integers" << endl;
+    for(int i : integers) {
         cout << i << '\n';
     }
 
-    cout << "OMG my thing\n";
+    cout << "\nStrings\n";
+	vector<string> fruits = {"orange", "apple", "raspberry"};
+
     for(auto f : fruits) {
         cout << "fruit " << f << endl;
     }
 
+    cout << "\ndemo for loop, count, other things like this\n";
+    cout << "size " << fruits.size() << endl;
+
+
     return 0;
 }
-
-// #include <iostream>
-// #include "demo_vectors.hpp"
 
 int main()
 {
     using namespace std;
-    cout << "OMGOMGOMG\n";
+    cout << "c++ vectors\n";
     demo_vectors();
 
 

@@ -5,7 +5,9 @@
 
 int main(void)
 {
-    string f = read_file("basic.h");
+    char filename[256] = "demos/demo-strtok.c";
+
+    string f = read_file(filename);
     char* s = f.data;
     char* pos;
 
@@ -17,7 +19,7 @@ int main(void)
     // errno
    FILE *fp;
 
-   fp = fopen("file.txt","r");
+   fp = fopen(filename,"r");
    if( fp == NULL ) {
       printf("Error: %s\n", strerror(errno));
    }

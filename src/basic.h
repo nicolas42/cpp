@@ -12,11 +12,6 @@
 
 double get_time(void);
 
-double get_time(void)
-{
-	return clock()/(double)CLOCKS_PER_SEC;
-}
-
 typedef struct string {
 	size_t length;
 	size_t allocated;
