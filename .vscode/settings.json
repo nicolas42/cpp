@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "mandelbrot.h": "c",
+        "string": "c"
+    }
+}

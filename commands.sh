@@ -1,5 +1,5 @@
 run(){
-        make ; clang $1 lib.a -Isrc ; ./a.out
+        make ; clang lib.a -Isrc $1 ; ./a.out
 }
 
 # run demos/mandelbrot_main.c

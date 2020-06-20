@@ -1,5 +1,5 @@
 /*
-clang -lm mandelbrot.c mandelbrot_main.c ; ./a.out
+clang  lib.a -Isrc demos/mandelbrot-demo.c ; ./a.out ; open out.ppm 
 */
 #include "mandelbrot.h"
 
