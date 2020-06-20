@@ -1,0 +1,3 @@
+all:
+	sh make.sh
+
