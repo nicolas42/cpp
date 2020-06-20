@@ -1,0 +1,5 @@
+cat $0
+make
+clang $1 lib.a -Isrc
+./a.out
+
