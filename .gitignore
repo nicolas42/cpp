@@ -3,4 +3,5 @@ a.out
 *.a
 *.so
 *.dSYM
+.DS_Store
 

@@ -1,0 +1,14 @@
+./arena_test.c
+./main.c
+./demos/demo_race.c
+./demos/concurrent_mandelbrot.c
+./demos/function_pointer_demo.c
+./demos/concurrent_factorial.c
+./demos/mandelbrot.c
+./misc/misc.h
+./misc/myprintf.h
+./types.h
+./multivector.h
+./arena_allocator.h
+./mandelbrot.h
+./util.h

@@ -1,3 +1,5 @@
+Type information from rebol source code
+
 #if defined (__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 /* C-code types: use C99 */
 
