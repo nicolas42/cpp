@@ -1,11 +1,13 @@
-#include "util.h"
+#include "basic.h"
 #include <string.h>
 #include <stdio.h>
 #include <errno.h>
 
 int main(void)
 {
-    string f = read_file("test.c");
+    char filename[256] = "demos/strtok-demo.c";
+
+    string f = read_file(filename);
     char* s = f.data;
     char* pos;
 
@@ -15,12 +17,12 @@ int main(void)
     }
     
     // errno
-   FILE *fp;
+    FILE *fp;
 
-   fp = fopen("file.txt","r");
-   if( fp == NULL ) {
-      printf("Error: %s\n", strerror(errno));
-   }
+    fp = fopen(filename,"r");
+    if( fp == NULL ) {
+        printf("Error: %s\n", strerror(errno));
+    }
    
    return(0);
 }

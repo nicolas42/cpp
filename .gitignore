@@ -4,4 +4,8 @@ a.out
 *.so
 *.dSYM
 .DS_Store
+*.dat
 
+*.o
+*.gch
+.vscode

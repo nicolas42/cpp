@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include "util.h"
+#include "basic.h"
 
 typedef unsigned long long u64;
 static FILE* file;
 
 int file_exists(const char * filename){
     /* try to open file to read */
-    // FILE *file;
-    if (file = fopen(filename, "r")){
+    FILE *file;
+    file = fopen(filename, "r");
+    if (file){
         fclose(file);
         return 1;
     }
@@ -59,7 +60,7 @@ int main(int argc, char** argv){
     if (file_exists(filename)){
         printf("woo");
         string f = read_file(filename);
-        strings s = split_destructive(f.data, "\n\r\t ");
+        strings s = string_split_destructive(f.data, "\n\r\t ");
 
         for (size_t i = 0; i < s.length; i++)
         {             

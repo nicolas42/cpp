@@ -1,5 +1,5 @@
-SHELL := /bin/bash # allows source command
+# SHELL := /bin/bash # allows source command
 
 all:
-	source make.sh
+	sh make.sh
 
