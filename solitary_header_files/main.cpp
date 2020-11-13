@@ -9,7 +9,7 @@ int main(int argc, char** argv){
 
 
   std::cout << "Hello World!\n";
-  show_image("/Users/Nick2/Downloads/meme4.jpg");
+  opencv_demo_show_image("/Users/Nick2/Downloads/meme4.jpg");
 
 
 

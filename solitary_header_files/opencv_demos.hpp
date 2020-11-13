@@ -11,7 +11,7 @@ g++ -std=c++11 a.cpp `pkg-config --cflags --libs opencv4`; ./a.out
 // using namespace std;
 // using namespace cv;
 
-int show_image(std::string filename)
+int opencv_demo_show_image(std::string filename)
 {
 
  // Read the image file
@@ -37,15 +37,3 @@ int show_image(std::string filename)
 
  return 0;
 }
-
-int opencv_main(int argc, char** argv){
-
-
-  show_image("/Users/Nick2/Downloads/meme4.jpg");
-
-
-
-  return 0;
-}
-
-
