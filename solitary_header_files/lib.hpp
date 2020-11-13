@@ -170,3 +170,35 @@ int vector_to_array_main(int argc, char** argv){
 */
   return 0;
 }
+
+
+int convert_strings_and_vectors_main(int argc, char** argv){
+
+  // A c string can be converted to a cpp string with the std::string constructor
+  // After this the += operator can be used to quickly join strings together.
+  // The original char pointer must be constant or c++ will throw an error.
+
+  const char* c = "Hello";
+  std::string cpp;
+
+  cpp = std::string(c);
+
+  cpp += " World!\n";
+  std::cout << cpp;
+
+
+
+  double a[] = {12,3,123,12,3,123,12,3};
+  int la = 8;
+  for (int i=0; i<la; i+=1){ std::cout << a[i] << " "; } std::cout << "\n";
+
+  std::vector<std::string> words1 = {"the", "frogurt", "is", "also", "cursed"};
+  std::string buff;
+  for (auto i:words1){ buff += i; buff += " "; } buff += "\n";
+  std::cout << buff;
+
+
+  return 0;
+}
+
+
