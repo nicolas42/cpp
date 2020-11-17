@@ -2,18 +2,44 @@
 g++ -std=c++11 main.cpp; ./a.out
 */
 
-#include "lib.hpp"
-#include "opencv_demos.hpp"
-
-int main(int argc, char** argv){
-
-
-  std::cout << "Hello World!\n";
-  opencv_demo_show_image("/Users/Nick2/Downloads/meme4.jpg");
+// #include "lib.hpp"
+// #include "opencv_demos.hpp"
+#include "multivector.hpp"
+#include <iostream>
 
 
 
-  return 0;
+int main(){
+
+    namespace mv = multivector;
+    // multivector::main();
+
+    std::cout << mv::allocated;
+
+    const double t = 2*M_PI;
+
+    mv::mul(2, mv::vec(1,1,0), mv::vec(1,1,0));
+    mv::mul(2, mv::vec_s(1, t/8, t/4), mv::vec_s(1, t/8, t/4));
+    mv::mul(2, mv::vec(1,0,0), mv::vec(0,1,0));
+    mv::mul(2, mv::vec_s(1, 0, t/8), mv::vec_s(1, 0, t/4));
+    mv::mul(3, mv::vec(1,0,0), mv::vec(0,1,0), mv::vec(0,0,1));
+    mv::mul(3, mv::vec(1,0,0), mv::vec(1,0,0), mv::vec_s(1,0,t/8));
+
+    mv::type v, a, b, spinor1, spinor2;
+
+    v = mv::vec(1,0,0);
+    a = mv::vec_s(1, t/8, t/4);
+    b = mv::vec_s(1, t/8, t/8);
+    mv::mul(5, b,a,v,a,b);
+
+    spinor1 = mv::mul(2, mv::vec(1,0,0), mv::vec_s(1,t/8,t/4));
+    spinor2 = mv::mul(2, mv::vec(1,0,0), mv::vec_s(1,t/8,t/4));
+    mv::mul(3, mv::vec(1,0,0), spinor1, spinor2);
+
+    mv::mul(2, mv::trivector(3), mv::trivector(4));
+    
+
+    free(mv::memory);
+
 }
-
 

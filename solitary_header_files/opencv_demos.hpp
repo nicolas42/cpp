@@ -37,3 +37,13 @@ int opencv_demo_show_image(std::string filename)
 
  return 0;
 }
+
+int opencv_main(int argc, char** argv){
+
+  std::cout << "Hello World!\n";
+  opencv_demo_show_image("/Users/Nick2/Downloads/meme4.jpg");
+
+  return 0;
+}
+
+
