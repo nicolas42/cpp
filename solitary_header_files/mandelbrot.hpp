@@ -1,8 +1,6 @@
 #ifndef MANDELBROT_H
 #define MANDELBROT_H
 
-namespace mandelbrot {
-
 // typedef struct box {
 //     double x = 0;
 //     double y = 0;
@@ -12,15 +10,18 @@ namespace mandelbrot {
 
 
 typedef struct image {
-    int w; //= 1000;
-    int h; //= 1000;
-    int c; // = 3;
-    char* data; // = (char*)malloc(w*h*c*sizeof(char));
+    int w;
+    int h;
+    int c;
+    char* data;
 } image;
 
-image allocate_image(image im, int w, int h, int c)
+image make_image(int w, int h, int c)
 {
-    im.w=w; im.h=h; im.c=c; 
+    image im;
+    im.w=w; 
+    im.h=h; 
+    im.c=c; 
     im.data = (char*)malloc(w*h*c*sizeof(char));
     return im;
 }
@@ -31,8 +32,10 @@ void free_image(image im)
 }
 
 
-image draw( image im, double x = 0, double y = 0, double w = 4, double h = 4 )
+image draw_mandelbrot( int image_width = 800, int image_height = 800, int image_channels = 3, double x = 0, double y = 0, double w = 4, double h = 4 )
 {
+    image im = make_image(image_width, image_height, image_channels);
+
     const unsigned char black[4] = {0, 0, 0, 255};
     const unsigned char white[4] = {255, 255, 255, 255};
     
@@ -86,12 +89,9 @@ image draw( image im, double x = 0, double y = 0, double w = 4, double h = 4 )
 }
 
 
-
-int demo(int imw=800, int imh=800, int imc=3, double x=0.2, double y=0.2, double w=2, double h=2)
+int demo_draw_mandelbrot(int imw=800, int imh=800, int imc=3, double x=0.2, double y=0.2, double w=2, double h=2)
 {
-    mandelbrot::image im;
-    im = mandelbrot::allocate_image(im, imw, imh, imc);
-    im = mandelbrot::draw(im, x,y,w,h);
+    image im = draw_mandelbrot( imw, imh, imc, x, y, w, h );
 
     // Write PPM File
 	const char* filename = "out.ppm";
@@ -102,10 +102,9 @@ int demo(int imw=800, int imh=800, int imc=3, double x=0.2, double y=0.2, double
     }
     (void) fclose(fp);
 
-    mandelbrot::free_image(im);
+    free_image(im);
     return 0;
 }
 
-} // end namespace mandelbrot
 
 #endif
