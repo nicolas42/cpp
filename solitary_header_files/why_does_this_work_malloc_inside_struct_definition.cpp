@@ -7,6 +7,7 @@
 typedef struct coordinate {
   int x = 0;
   int y = 0;
+  int z = 0;
 } coordinate;
 
 typedef struct coordinate_array
@@ -38,7 +39,7 @@ int main(){
   coordinate c;
   
   for (int i=0; i<10; i+=1){
-    c.x=i; c.y=2*i;
+    c.x=i; c.y=2*i; c.z=3*i;
     a = coordinate_array_add(a,c);
   }
 
