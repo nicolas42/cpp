@@ -45,7 +45,7 @@ int main(){
 
   // print array
   for (int i=0; i<a.length; i+=1){
-    std::cout << a.data[i].x << " " <<  a.data[i].y << " ";
+    std::cout << a.data[i].x << " " <<  a.data[i].y << " " << a.data[i].z << " ";
   }
 
   free(a.data);

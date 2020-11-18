@@ -11,39 +11,40 @@ g++ -std=c++11 a.cpp `pkg-config --cflags --libs opencv4`; ./a.out
 // using namespace std;
 // using namespace cv;
 
-int opencv_demo_show_image(std::string filename)
-{
+namespace opencv_demos {
 
- // Read the image file
- cv::Mat image = cv::imread(filename);
+    int show_image(std::string filename)
+    {
 
- // Check for failure
- if (image.empty()) 
- {
-  std::cout << "Could not open or find the image" << std::endl;
-  std::cin.get(); //wait for any key press
-  return -1;
- }
+        // Read the image file
+        cv::Mat image = cv::imread(filename);
 
- cv::String windowName = "woo"; //Name of the window
+        // Check for failure
+        if (image.empty()) 
+        {
+            std::cout << "Could not open or find the image" << std::endl;
+            std::cin.get(); //wait for any key press
+            return -1;
+        }
 
- cv::namedWindow(windowName); // Create a window
+        cv::String windowName = "woo"; //Name of the window
 
- cv::imshow(windowName, image); // Show our image inside the created window.
+        cv::namedWindow(windowName); // Create a window
 
- cv::waitKey(0); // Wait for any keystroke in the window
+        cv::imshow(windowName, image); // Show our image inside the created window.
 
- cv::destroyWindow(windowName); //destroy the created window
+        cv::waitKey(0); // Wait for any keystroke in the window
 
- return 0;
-}
+        cv::destroyWindow(windowName); //destroy the created window
 
-int opencv_main(int argc, char** argv){
+        return 0;
+    }
 
-  std::cout << "Hello World!\n";
-  opencv_demo_show_image("/Users/Nick2/Downloads/meme4.jpg");
+    void main(){
 
-  return 0;
-}
+        show_image("/Users/Nick2/Downloads/meme4.jpg");
+
+    }
 
 
+} // end namespace opencv_demos 

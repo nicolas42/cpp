@@ -1,70 +1,23 @@
 /*
-g++ -std=c++11 main.cpp; ./a.out
+g++ -std=c++11 main.cpp; ./out
 */
 
 #include <iostream>
+#include "sha1.hpp"
+// #include "opencv_demos.hpp"
+// to include opencv libraries in unix use `pkg-config --cflags --libs opencv4`
 
-namespace vector {
+#include "mandelbrot.hpp"
+#include "multivector.hpp"
 
-  typedef struct coordinate {
-    int x;
-    int y;
-  } coordinate;
-  
-  typedef struct vector {
-    int allocated;
-    int length;
-    int size;
-    coordinate* data;
-  } vector;
+int main()
+{
+    std::string sha1_hash = sha1::sha1("Hello World!\n");
+    std::cout << sha1_hash << std::endl;
+    
+    mandelbrot::demo(400,400,3,0,0,4,4);
 
-  vector init(vector a)
-  {
-    a.allocated = 10;
-    a.length = 0;
-    a.size = sizeof(coordinate);
-    a.data = (coordinate*)malloc(a.allocated * a.size);
-    return a;
-  }
-
-  vector maybe_grow(vector a)
-  {
-    if ( a.length == a.allocated ) {
-      a.allocated *= 2;
-      a.data = (coordinate*)realloc(a.data, a.allocated * a.size);
-    }
-    return a;
-  }
-
-  vector append(vector a, coordinate b)
-  {
-    a = maybe_grow(a);
-    a.data[a.length] = b;
-    a.length += 1;
-    return a;
-  }
-
-  vector print(vector a)
-  {
-    for (int i=0; i<a.length; i+=1){
-      std::cout << a.data[i].x << " " <<  a.data[i].y << " ";
-    }
-    return a;
-  }
-  
-  
-}
-
-int main(){
-
-  vector::vector a;
-  a = vector::init(a);
-  
-  for (int i=0; i<20; i+=1){
-    vector::coordinate c;
-    c.x=1; c.y=2;
-    a = vector::append(a,c);
-  }
-  vector::print(a);
-
+    multivector::main();
+    
+    return 0;
 }
